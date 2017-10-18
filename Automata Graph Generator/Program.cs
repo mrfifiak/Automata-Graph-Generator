@@ -14,12 +14,14 @@ namespace Automata_Graph_Generator
         [STAThread]
         static void Main()
         {
+            /*
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            */
 
-            Node n = new Node();
-            n.Name;
+            Node n = new Node("A", true, true, null);
+            
         }
     }
 }
