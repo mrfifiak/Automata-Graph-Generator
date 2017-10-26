@@ -8,5 +8,21 @@ namespace Automata_Graph_Generator
 {
     abstract class Graph
     {
+        #region Fields and Properties
+        protected Node _startingState;
+        private List<Node> _allStates;
+
+        public Node StartingState { get => _startingState; set => _startingState = value; }
+        protected List<Node> AllStates { get => _allStates; set => _allStates = value; }
+        #endregion
+
+        #region Methods
+
+        abstract public bool AddState(string name, bool accepted, Node previousState, char previousTransition, Dictionary<char, Node> transitions = null);
+        abstract public bool AddStartState(string name, bool accepted);
+
+
+
+        #endregion
     }
 }
