@@ -48,6 +48,10 @@ namespace Automata_Graph_Generator
 
         public override bool AddState(string name, bool accepted, string previousStateName, char previousTransition, Dictionary<char, Node> transitions = null)
         {
+            Node newNode = new Node(name, accepted, false, transitions);
+
+
+
             throw new NotImplementedException();
         }
     }
