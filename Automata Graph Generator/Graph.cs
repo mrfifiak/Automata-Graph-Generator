@@ -15,7 +15,7 @@ namespace Automata_Graph_Generator
         public Graph()
         {
             _startingState = null;
-            _allStates = null;
+            _allStates = new List<Node>();
         }
 
         public Node StartingState { get => _startingState; set => _startingState = value; }

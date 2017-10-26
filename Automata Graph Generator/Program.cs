@@ -21,6 +21,8 @@ namespace Automata_Graph_Generator
             Application.Run(new Form1());
             */
 
+            DFAGraph dfa = new DFAGraph();
+            dfa.AddStartState("A", true);
             Node n = new Node("A", true, true, null);
             
         }
