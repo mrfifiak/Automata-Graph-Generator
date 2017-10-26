@@ -9,7 +9,7 @@ namespace Automata_Graph_Generator
     abstract class Graph
     {
         #region Fields and Properties
-        protected Node _startingState;
+        private Node _startingState;
         private List<Node> _allStates;
 
         public Node StartingState { get => _startingState; set => _startingState = value; }
@@ -24,5 +24,25 @@ namespace Automata_Graph_Generator
 
 
         #endregion
+    }
+
+    class DFAGraph : Graph
+    {
+        public override bool AddStartState(string name, bool accepted)
+        {
+            if (StartingState == null)
+            {
+
+                StartingState = new Node(name, accepted, true);
+                AllStates.Add(StartingState);
+                return true;
+            }
+            return false;
+        }
+
+        public override bool AddState(string name, bool accepted, string previousStateName, char previousTransition, Dictionary<char, Node> transitions = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
