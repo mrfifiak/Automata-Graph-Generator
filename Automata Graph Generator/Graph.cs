@@ -18,7 +18,7 @@ namespace Automata_Graph_Generator
 
         #region Methods
 
-        abstract public bool AddState(string name, bool accepted, Node previousState, char previousTransition, Dictionary<char, Node> transitions = null);
+        abstract public bool AddState(string name, bool accepted, string previousStateName, char previousTransition, Dictionary<char, Node> transitions = null);
         abstract public bool AddStartState(string name, bool accepted);
 
 
