@@ -9,6 +9,7 @@ namespace Automata_Graph_Generator
 {
     class Node
     {
+        //TODO: CHANGE NAME TO ‚STATE’
         string _name;
         bool _isAccepted;
         bool _isStart;
@@ -22,7 +23,7 @@ namespace Automata_Graph_Generator
 
         #endregion
 
-        #region (De)Constructors
+        #region Constructors
 
         public Node(string name, bool isAccepted, bool isStart, Dictionary<char, Node> transitions = null)
         {
