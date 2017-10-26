@@ -12,6 +12,12 @@ namespace Automata_Graph_Generator
         private Node _startingState;
         private List<Node> _allStates;
 
+        public Graph()
+        {
+            _startingState = null;
+            _allStates = null;
+        }
+
         public Node StartingState { get => _startingState; set => _startingState = value; }
         protected List<Node> AllStates { get => _allStates; set => _allStates = value; }
         #endregion
