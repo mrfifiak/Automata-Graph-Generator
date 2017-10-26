@@ -25,7 +25,7 @@ namespace Automata_Graph_Generator
 
         #region Constructors
 
-        public Node(string name, bool isAccepted, bool isStart, Dictionary<char, Node> transitions = null)
+        public Node(string name, bool isAccepted = false, bool isStart = false, Dictionary<char, Node> transitions = null)
         {
             _name = name;
             _isAccepted = isAccepted;
