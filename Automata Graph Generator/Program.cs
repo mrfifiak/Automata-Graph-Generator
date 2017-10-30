@@ -23,7 +23,7 @@ namespace Automata_Graph_Generator
 
             DFAGraph dfa = new DFAGraph();
             dfa.AddStartState("A", true);
-            Node n = new Node("A", true, true, null);
+            dfa.AddState("B", true, "A", 'a');
             
         }
     }
