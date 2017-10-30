@@ -61,6 +61,7 @@ namespace Automata_Graph_Generator
             if (!AllStates.Where(n => n.Name == name).Any())
             {
                 Node newNode = new Node(name, accepted, false, transitions);
+                return true;
             }
             return false;
             
