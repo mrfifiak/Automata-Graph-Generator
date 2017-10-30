@@ -27,6 +27,7 @@ namespace Automata_Graph_Generator
 
         abstract public bool AddState(string name, bool accepted, string previousStateName, char previousTransition, Dictionary<char, Node> transitions = null);
         abstract public bool AddStartState(string name, bool accepted);
+        abstract public bool AddTransition(string fromState, string toState, char symbol);
         abstract public bool GenerateFromTransitionTable(DataTable transTable);
         abstract public DataTable ToDataTable();
 
@@ -67,6 +68,19 @@ namespace Automata_Graph_Generator
             }
             return false;
             
+        }
+        
+        /// <summary>
+        /// Adds transition from one existing state to another.
+        /// </summary>
+        /// <param name="fromState">Statring state.</param>
+        /// <param name="toState">Ending state.</param>
+        /// <param name="symbol">Symbol under which the transistion happens.</param>
+        /// <returns>False - one (or both) of the states nonexistent
+        /// True - all good</returns>
+        public override bool AddTransition(string fromState, string toState, char symbol)
+        {
+            throw new NotImplementedException();
         }
 
         public override bool GenerateFromTransitionTable(DataTable transTable)
