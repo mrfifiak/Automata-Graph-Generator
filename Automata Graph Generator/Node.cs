@@ -46,6 +46,11 @@ namespace Automata_Graph_Generator
 #endif
         }
 
+        public override string ToString()
+        {
+            return _name;
+        }
+
 
 
         #endregion

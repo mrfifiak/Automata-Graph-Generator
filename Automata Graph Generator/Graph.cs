@@ -96,7 +96,6 @@ namespace Automata_Graph_Generator
             from.Transitions.Add(symbol, to);
 
             return true;
-            throw new NotImplementedException();
         }
 
         public override bool GenerateFromTransitionTable(DataTable transTable)
