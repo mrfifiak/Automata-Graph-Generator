@@ -12,15 +12,18 @@ namespace Automata_Graph_Generator
         #region Fields and Properties
         private Node _startingState;
         private List<Node> _allStates;
+        private List<char> _alphabet;
 
         public Graph()
         {
             _startingState = null;
             _allStates = new List<Node>();
+            _alphabet = new List<char>();
         }
 
         public Node StartingState { get => _startingState; set => _startingState = value; }
         protected List<Node> AllStates { get => _allStates; set => _allStates = value; }
+        public List<char> Alphabet { get => _alphabet; set => _alphabet = value; }
         #endregion
 
         #region Methods
