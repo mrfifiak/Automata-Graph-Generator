@@ -25,12 +25,16 @@ namespace Automata_Graph_Generator
 
         #region Constructors
 
-        public Node(string name, bool isAccepted, bool isStart, Dictionary<char, Node> transitions = null)
+        public Node(string name, bool isAccepted = false, bool isStart = false, Dictionary<char, Node> transitions = null)
         {
             _name = name;
             _isAccepted = isAccepted;
             _isStart = isStart;
             _transitions = transitions;
+            if(_transitions == null)
+            {
+                _transitions = new Dictionary<char, Node>();
+            }
 #if DEBUG
             string debug = string.Empty;
             if (isAccepted) debug += "Accepted ";
@@ -40,6 +44,11 @@ namespace Automata_Graph_Generator
 
             Debug.WriteLine(debug + "constructed."); 
 #endif
+        }
+
+        public override string ToString()
+        {
+            return _name;
         }
 
 

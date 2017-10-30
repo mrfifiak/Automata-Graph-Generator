@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,8 +22,14 @@ namespace Automata_Graph_Generator
             Application.Run(new Form1());
             */
 
-            Node n = new Node("A", true, true, null);
-            
+
+            DataTable transitionTable = new DataTable();
+
+            DFAGraph dfa = new DFAGraph();
+            dfa.AddStartState("A", true);
+            dfa.AddState("B", true, "A", 'a');
+            dfa.AddState("C", false, "B", 'b');
+            dfa.AddTransition("A", "C", 'b');
         }
     }
 }
