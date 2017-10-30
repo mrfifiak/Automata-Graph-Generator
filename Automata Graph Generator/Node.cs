@@ -31,6 +31,10 @@ namespace Automata_Graph_Generator
             _isAccepted = isAccepted;
             _isStart = isStart;
             _transitions = transitions;
+            if(_transitions == null)
+            {
+                _transitions = new Dictionary<char, Node>();
+            }
 #if DEBUG
             string debug = string.Empty;
             if (isAccepted) debug += "Accepted ";

@@ -28,7 +28,7 @@ namespace Automata_Graph_Generator
 
         #region Methods
 
-        abstract public bool AddState(string name, bool accepted, string previousStateName, char previousTransition, Dictionary<char, Node> transitions = null);
+        abstract public bool AddState(string name, bool accepted, string previousStateName, char symbol, Dictionary<char, Node> transitions = null);
         abstract public bool AddStartState(string name, bool accepted);
         abstract public bool AddTransition(string fromState, string toState, char symbol);
         abstract public bool GenerateFromTransitionTable(DataTable transTable);
@@ -58,16 +58,23 @@ namespace Automata_Graph_Generator
         /// <param name="name">Name of the state.</param>
         /// <param name="accepted">Defines if the state is accepted.</param>
         /// <param name="previousStateName">Name of one of the states that has the transition to the new state.</param>
-        /// <param name="previousTransition">Symbol under which the automata goes from previousState to the new state.</param>
+        /// <param name="symbol">Symbol under which the automata goes from previousState to the new state.</param>
         /// <param name="transitions">Transitions from the new state ['symbol', "nextStateName"].</param>
         /// <returns>False - no such previousState
         /// True - all good</returns>
-        public override bool AddState(string name, bool accepted, string previousStateName, char previousTransition, Dictionary<char, Node> transitions = null)
+        public override bool AddState(string name, bool accepted, string previousStateName, char symbol, Dictionary<char, Node> transitions = null)
         {
+            
             if (!AllStates.Where(n => n.Name == name).Any())
             {
-                Node newNode = new Node(name, accepted, false, transitions);
-                return true;
+                Node prevState = AllStates.Where(n => n.Name == previousStateName).First();
+                if (prevState != null)
+                {
+                    Node newNode = new Node(name, accepted, false, transitions);
+                    prevState.Transitions.Add(symbol, newNode);
+                    AllStates.Add(newNode);
+                    return true; 
+                }
             }
             return false;
             
@@ -83,6 +90,12 @@ namespace Automata_Graph_Generator
         /// True - all good</returns>
         public override bool AddTransition(string fromState, string toState, char symbol)
         {
+            Node from = AllStates.Where(n => n.Name == fromState).First();
+            Node to = AllStates.Where(n => n.Name == toState).First();
+
+            from.Transitions.Add(symbol, to);
+
+
             throw new NotImplementedException();
         }
 

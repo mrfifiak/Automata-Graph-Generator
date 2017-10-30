@@ -16,11 +16,11 @@ namespace Automata_Graph_Generator
         [STAThread]
         static void Main()
         {
-            
+            /*
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            
+            */
 
 
             DataTable transitionTable = new DataTable();
@@ -28,7 +28,8 @@ namespace Automata_Graph_Generator
             DFAGraph dfa = new DFAGraph();
             dfa.AddStartState("A", true);
             dfa.AddState("B", true, "A", 'a');
-            
+            dfa.AddState("C", false, "B", 'b');
+            //dfa.AddTransition("A", "C", 'b');
         }
     }
 }
