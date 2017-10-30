@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,11 +16,14 @@ namespace Automata_Graph_Generator
         [STAThread]
         static void Main()
         {
-            /*
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            */
+            
+
+
+            DataTable transitionTable = new DataTable();
 
             DFAGraph dfa = new DFAGraph();
             dfa.AddStartState("A", true);
