@@ -93,6 +93,11 @@ namespace Automata_Graph_Generator
             Node from = AllStates.Where(n => n.Name == fromState).First();
             Node to = AllStates.Where(n => n.Name == toState).First();
 
+            if(from == null || to == null)
+            {
+                return false;
+            }
+
             from.Transitions.Add(symbol, to);
 
             return true;
