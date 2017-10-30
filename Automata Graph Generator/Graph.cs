@@ -28,7 +28,7 @@ namespace Automata_Graph_Generator
         abstract public bool AddState(string name, bool accepted, string previousStateName, char previousTransition, Dictionary<char, Node> transitions = null);
         abstract public bool AddStartState(string name, bool accepted);
         abstract public bool GenerateFromTransitionTable(DataTable transTable);
-
+        abstract public DataTable ToDataTable();
 
 
         #endregion
@@ -70,6 +70,11 @@ namespace Automata_Graph_Generator
         }
 
         public override bool GenerateFromTransitionTable(DataTable transTable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DataTable ToDataTable()
         {
             throw new NotImplementedException();
         }
