@@ -29,7 +29,7 @@ namespace Automata_Graph_Generator
             dfa.AddStartState("A", true);
             dfa.AddState("B", true, "A", 'a');
             dfa.AddState("C", false, "B", 'b');
-            //dfa.AddTransition("A", "C", 'b');
+            dfa.AddTransition("A", "C", 'b');
         }
     }
 }
