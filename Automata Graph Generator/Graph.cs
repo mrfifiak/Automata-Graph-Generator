@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace Automata_Graph_Generator
 
         abstract public bool AddState(string name, bool accepted, string previousStateName, char previousTransition, Dictionary<char, Node> transitions = null);
         abstract public bool AddStartState(string name, bool accepted);
+        abstract public bool GenerateFromTransitionTable(DataTable transTable);
 
 
 
@@ -65,6 +67,11 @@ namespace Automata_Graph_Generator
             }
             return false;
             
+        }
+
+        public override bool GenerateFromTransitionTable(DataTable transTable)
+        {
+            throw new NotImplementedException();
         }
     }
 }
