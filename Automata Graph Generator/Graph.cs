@@ -65,7 +65,7 @@ namespace Automata_Graph_Generator
         public override bool AddState(string name, bool accepted, string previousStateName, char symbol, Dictionary<char, Node> transitions = null)
         {
             
-            if (!AllStates.Where(n => n.Name == name).Any())
+            if (!AllStates.Where(n => n.Name == name).Any() && Alphabet.Exists(s => s == symbol))
             {
                 Node prevState = AllStates.Where(n => n.Name == previousStateName).First();
                 if (prevState != null)
@@ -93,7 +93,7 @@ namespace Automata_Graph_Generator
             Node from = AllStates.Where(n => n.Name == fromState).First();
             Node to = AllStates.Where(n => n.Name == toState).First();
 
-            if(from == null || to == null)
+            if(from == null || to == null || !Alphabet.Exists(s => s == symbol))
             {
                 return false;
             }
