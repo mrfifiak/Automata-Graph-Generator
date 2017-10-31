@@ -110,6 +110,22 @@ namespace Automata_Graph_Generator
 
         public override DataTable ToDataTable()
         {
+            #region prepping the datatable
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("isAcepted", typeof(bool));
+            dt.Columns.Add("Name", typeof(string));
+            foreach (var symbol in Alphabet)
+            {
+                dt.Columns.Add(symbol.ToString(), typeof(string));
+            }
+
+            #endregion
+
+            // adding the starting state
+            Node adding = AllStates.Where(s => s.IsStart == true).First();
+            DataRow newRow = adding.ToDataRow(ref dt);
+
             throw new NotImplementedException();
         }
     }

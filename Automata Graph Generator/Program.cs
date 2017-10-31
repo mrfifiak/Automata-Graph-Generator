@@ -33,6 +33,9 @@ namespace Automata_Graph_Generator
             dfa.AddState("C", false, "B", 'b');
             dfa.AddState("D", false, "B", 'd');
             dfa.AddTransition("A", "C", 'b');
+            dfa.AddTransition("A", "C", 'h');
+
+            DataTable dt = dfa.ToDataTable();
         }
     }
 }

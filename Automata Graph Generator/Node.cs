@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace Automata_Graph_Generator
 
         #endregion
 
-        #region Constructors
+        #region Methods
 
         public Node(string name, bool isAccepted = false, bool isStart = false, Dictionary<char, Node> transitions = null)
         {
@@ -49,6 +50,20 @@ namespace Automata_Graph_Generator
         public override string ToString()
         {
             return _name;
+        }
+
+        internal DataRow ToDataRow(ref DataTable dt)
+        {
+            DataRow dr = dt.NewRow();
+
+            dr["isAccepted"] = IsAccepted;
+            dr["Name"] = Name;
+            for (int i = 2; i < dt.Columns.Count; i++)
+            {
+                dr[i] = Transitions[char.Parse(dt.Columns[i].ColumnName)];
+            }
+
+            return dr;
         }
 
 
