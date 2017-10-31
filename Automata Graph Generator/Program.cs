@@ -26,9 +26,12 @@ namespace Automata_Graph_Generator
             DataTable transitionTable = new DataTable();
 
             DFAGraph dfa = new DFAGraph();
+            dfa.Alphabet.Add('a');
+            dfa.Alphabet.Add('b');
             dfa.AddStartState("A", true);
             dfa.AddState("B", true, "A", 'a');
             dfa.AddState("C", false, "B", 'b');
+            dfa.AddState("D", false, "B", 'd');
             dfa.AddTransition("A", "C", 'b');
         }
     }
