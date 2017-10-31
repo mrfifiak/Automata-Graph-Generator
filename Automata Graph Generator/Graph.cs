@@ -113,7 +113,7 @@ namespace Automata_Graph_Generator
             #region prepping the datatable
 
             DataTable dt = new DataTable();
-            dt.Columns.Add("isAcepted", typeof(bool));
+            dt.Columns.Add("isAccepted", typeof(bool));
             dt.Columns.Add("Name", typeof(string));
             foreach (var symbol in Alphabet)
             {
@@ -123,10 +123,17 @@ namespace Automata_Graph_Generator
             #endregion
 
             // adding the starting state
-            Node adding = AllStates.Where(s => s.IsStart == true).First();
-            DataRow newRow = adding.ToDataRow(ref dt);
+            Node starting = AllStates.Where(s => s.IsStart == true).First();
+            dt.Rows.Add(starting.ToDataRow(ref dt));
 
-            throw new NotImplementedException();
+            IEnumerable<Node> states = AllStates.Where(s => s.IsStart == false);
+            foreach (var s in states)
+            {
+                dt.Rows.Add(s.ToDataRow(ref dt));
+            }
+
+            GC.Collect();
+            return dt;
         }
     }
 }

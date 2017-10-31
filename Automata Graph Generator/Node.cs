@@ -60,7 +60,14 @@ namespace Automata_Graph_Generator
             dr["Name"] = Name;
             for (int i = 2; i < dt.Columns.Count; i++)
             {
-                dr[i] = Transitions[char.Parse(dt.Columns[i].ColumnName)];
+                char sym = char.Parse(dt.Columns[i].ColumnName);
+
+                // TODO: IF IT'S FALSE, IT'S NOT DFA
+                if (Transitions.Where(s => s.Key == sym).Any())
+                {
+                    dr[i] = Transitions[sym]; 
+                }
+
             }
 
             return dr;

@@ -36,6 +36,8 @@ namespace Automata_Graph_Generator
             dfa.AddTransition("A", "C", 'h');
 
             DataTable dt = dfa.ToDataTable();
+
+            Console.WriteLine("TEST ENDS...");
         }
     }
 }
